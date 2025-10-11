@@ -88,6 +88,7 @@ loop:
   jsr checkCollisions
   jsr drawPaddle
   jsr drawBall
+  jsr delay
   jmp loop
 
 readKeys:
@@ -414,4 +415,17 @@ drawPage5:
   tax
   lda #$01
   sta $0500,x
+  rts
+
+delay:
+  ldx #$03
+delayOuter:
+  ldy #$00
+delayInner:
+  nop
+  nop
+  dey
+  bne delayInner
+  dex
+  bne delayOuter
   rts
