@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>6502 Simulator</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="assembler.js"></script>
+    </head>
+    <body>
+        <div class="widget">
+            <h1>6502 Simulator</h1> 
+            <p>Powered by <a href="https://github.com/skilldrick/easy6502" target="_blank">Easy6502</a> by Nick Morgan</p>
+
+            <div class="container">
+            <div class="left">
+                <textarea class="code" rows="32" cols="32"></textarea>
+                <div>
+                    <input type="button" class="assembleButton" value="Assemble">
+                    <input type="button" class="runButton" value="Run">
+                    <input type="button" class="resetButton" value="Reset">
+                </div>
+                <div class="speed-control">
+                    <label for="speedSlider">Speed: <span class="speedValue">1x</span></label>
+                    <input type="range" id="speedSlider" class="speedSlider" min="10" max="1000" value="97" step="1">
+                </div>
+            </div>
+            <div>
+                <canvas class="screen" width="640" height="640"></canvas>
+            </div>
+            </div>
+            
+            <div>
+            <h3>Messages</h3>
+            <div class="messages"><code></code></div>
+            </div>
+            
+            <div class="notes" style="display:none;"></div>
+        </div>
+        
+        <script>
+            $(document).ready(function(){
+                // the original speed is 97
+                window.simulatorSpeed = 97;
+                
+                $('.speedSlider').on('input', function(){
+                    var speed = parseInt($(this).val());
+                    window.simulatorSpeed = speed;
+                    
+                    var speedMultiplier = (speed / 97).toFixed(1);
+                    $('.speedValue').text(speedMultiplier + 'x');
+                });
+            });
+        </script>
+    </body>
+</html>

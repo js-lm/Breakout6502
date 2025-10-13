@@ -1,0 +1,106 @@
+body{ 
+  background: #1e1e1e; 
+  color: #e0e0e0; 
+  font-family: monospace; 
+  padding: 20px; 
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+a{ 
+  color: #4a9eff; 
+}
+
+.container{ 
+  display: flex; 
+  gap: 20px; 
+  align-items: start;
+}
+
+.left{ 
+  flex: 1; 
+}
+
+textarea{ 
+  background: #2d2d2d; 
+  color: #e0e0e0; 
+  border: 1px solid #555; 
+  padding: 10px; 
+  font-family: monospace; 
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button, input[type="button"]{ 
+  background: #444; 
+  color: #e0e0e0; 
+  border: 1px solid #666; 
+  padding: 8px 16px; 
+  cursor: pointer; 
+  margin: 5px 5px 0 0; 
+}
+
+button:hover, input[type="button"]:hover{ 
+  background: #555; 
+}
+
+canvas{ 
+  border: 1px solid #555; 
+  display: block;
+}
+
+.messages{ 
+  background: #2d2d2d; 
+  border: 1px solid #555; 
+  padding: 10px; 
+  margin-top: 10px; 
+  max-height: 200px; 
+  overflow-y: auto; 
+}
+
+.speed-control{
+  margin-top: 15px;
+  padding: 10px;
+  background: #2d2d2d;
+  border: 1px solid #555;
+  border-radius: 4px;
+}
+
+.speed-control label{
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.speedValue{
+  font-weight: bold;
+  color: #4a9eff;
+}
+
+.speedSlider{
+  width: 100%;
+  cursor: pointer;
+  height: 6px;
+  background: #444;
+  outline: none;
+  border-radius: 3px;
+}
+
+.speedSlider::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #4a9eff;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.speedSlider::-moz-range-thumb{
+  width: 16px;
+  height: 16px;
+  background: #4a9eff;
+  cursor: pointer;
+  border-radius: 50%;
+  border: none;
+}
