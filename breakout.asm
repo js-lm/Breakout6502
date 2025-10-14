@@ -101,14 +101,14 @@ readKeys:
 
 moveLeft:
   lda paddleX
-  cmp #$01
+  cmp #$00
   beq doneMove
   dec paddleX
   rts
 
 moveRight:
   lda paddleX
-  cmp #$1a
+  cmp #$1b
   beq doneMove
   inc paddleX
   rts
@@ -203,16 +203,16 @@ erasePage5:
 checkCollisions:
   ; check paddle collision (paddle at Y=$1c)
   lda ballY
-  cmp #$1c
+  cmp #$1b
   bne checkBricks
   
-  ; check if ball X is on paddle
+  ; check if ball X is on paddle (or within 1 pixel to either side)
   lda ballX
   sec
   sbc paddleX
-  bmi checkBricks
+  bmi checkBricks  ; ball is left of paddle
   cmp #$05
-  bcs checkBricks
+  bcs checkBricks  ; ball is right of paddle
   
   ; check if moving down (ballDY = $01)
   lda ballDY
